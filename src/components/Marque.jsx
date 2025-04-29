@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 const Marque = () => {
   return (
-    <div data-scroll data-scroll-section data-scroll-speed=".1"
+    <div data-scroll data-scroll-section data-scroll-speed=".01"
       className="w-full py-20 rounded-tl-3xl rounded-tr-3xl"
       style={{ backgroundColor: "#004d43" }}
     >

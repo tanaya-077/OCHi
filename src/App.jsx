@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "./components/Navbar";
 
 import LandingPage from "./components/LandingPage"
@@ -11,18 +11,21 @@ import Footer from "./components/Footer";
 import LocomotiveScroll from 'locomotive-scroll';
 const App = () => {
 
-const locomotiveScroll = new LocomotiveScroll({
-  el: document.querySelector('[data-scroll-container]'),
-  smooth: true,
-  smartphone: {
-    smooth: true
-  },
-  tablet: {
-    smooth: true
-  }
-});
+  useEffect(() => {
+    const scrollEl = document.querySelector('[data-scroll-container]');
+    const scroll = new LocomotiveScroll({
+      el: scrollEl,
+      smooth: true,
+      smartphone: { smooth: true },
+      tablet: { smooth: true }
+    });
+
+    return () => {
+      if (scroll) scroll.destroy();
+    };
+  }, []);
   return (
-    <div className="w-full h-screen text-white">
+    <div data-scroll-container className="min-h-screen h-full text-white">
       <Navbar />
       <LandingPage />
       <Marque />
